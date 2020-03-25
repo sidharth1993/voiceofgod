@@ -3,7 +3,7 @@ const template =  `
     <div class="p-strip--dark is-shallow">
         <div class="row">
             <div class="col-12">
-                <h2 class="heading">Voices</h2>
+                <h2 class="heading">Voice of God</h2>
             </div>
         </div>
     </div>

@@ -1,22 +1,25 @@
+import {albums} from './fromSpotify';
+import Albums from './albums';
+
 export default class Section extends HTMLElement{
     constructor(){
-        let songs = [
-            {name:"Maruvaarthai",genre:"Melody",movie:"ENPT"},
-            {name:"Thaarame Thaarame",genre:"Melody",movie:"Kadaaram Kondaan"},
-            {name:"Yean ennai pirindhai",genre:"Melody",movie:"Aditya Varma"}
-        ];
         super();
-        this.innerHTML = songs.map((song)=>{
-            return `
-            <div class="p-strip--light is-shallow">
-                <div class="row u-vertically-center">
-                    <div class="col-8">
-                        <h3>${song.name}</h3>
-                        <p>${song.movie} - ${song.genre}</p>
-                    </div>
-                </div>
-            </div>
-            `;
-        })
+
+        window.customElements.define('app-album',Albums);
+        let token = this.getAttribute('token');
+        albums(token).then(albums=>{
+            albums.forEach(album => {
+                this.innerHTML += `<app-album
+                    name=${album.name.replace(/\s/g,'-')}
+                    tracks=${album.total_tracks}
+                    release=${album.release_date}
+                    id=${album.id}
+                    img=${album.images[2].url} 
+                    token=${token}>
+                     </app-album>`;
+            });
+      
+        });
+
     }
 }

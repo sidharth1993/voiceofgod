@@ -12,16 +12,20 @@ module.exports = {
         path : path.resolve(__dirname,'dist'),
     },
     plugins : [
-        new CleanWebpackPlugin(),
+        //new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title:'Sid Sriram'
         })
     ],
     devServer : {
         contentBase : path.join(__dirname,'dist'),
+        host : '0.0.0.0',
         compress : true,
         port : 9000,
-        hot : true
+        hot : true,
+        /* proxy : {
+
+        } */
     },
     module : {
         rules : [

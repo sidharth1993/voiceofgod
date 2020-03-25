@@ -1,0 +1,26 @@
+<div class="album-card">
+    <div class="p-card">
+        <div class="col-12>
+                <div class=" row">
+            <div class="col-3">
+                <img src=${imgUrl}
+                    alt=${name.replace(/-/g,' ')} />
+                    </div>
+                    <div class="col-9">
+                    <h3 class="p-card__title">${name.replace(/-/g,' ')}</h3>
+                    <p class="p-card__content">
+                    <aside class="p-accordion" role="tablist" aria-multiselect="true">                   
+                    <ul class="p-accordion__list">
+                        <li class="p-accordion__group">
+                            <button type="button" class="p-accordion__tab" id="tab${this.id}" role="tab" aria-controls="section${this.id}" aria-expanded="false">${name.replace(/-/g,' ')} | ${tracks} tracks | ${release}</button>
+                            <section class="p-accordion__panel" id="section${this.id}" role="tabpanel" aria-hidden="true" aria-labelledby="section${this.id}"></section>
+                        </li>
+                    </ul>
+                    </aside>
+                    </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>  
+    </div>
